@@ -1,2 +1,5 @@
 # advent-of-code-2021
- My first attempt at completing AoC. 
+
+## day 1 
+
+Happy to start my first attempt at this journey. I do not know if I will complete it, but I am grateful that the first day's challenge was straightforward and fun. I hope I have the motivation to continue when things get rough!
