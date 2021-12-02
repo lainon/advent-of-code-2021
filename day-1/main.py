@@ -41,7 +41,7 @@ def data_summation(data, window):
     return sums
 
 
-def reduction(data, operation):
+def data_reduction(data, operation):
     result = 0
 
     for idx, item in enumerate(data):
@@ -54,11 +54,11 @@ def reduction(data, operation):
 
 
 def part_one(data):
-    print(f"part one: {reduction(data_summation(data, 1), '>')}")
+    print(f"part one: {data_reduction(data_summation(data, 1), '>')}")
 
 
 def part_two(data):
-    print(f"part two: {reduction(data_summation(data, 3), '>')}")
+    print(f"part two: {data_reduction(data_summation(data, 3), '>')}")
 
 
 def main():
