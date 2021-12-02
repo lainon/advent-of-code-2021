@@ -17,12 +17,7 @@ def get_truth(a, relate, b):
 
 def load_data(file):
     file.seek(0)
-    lines_in_file = file.readlines()
-    data = []
-
-    for line in lines_in_file:
-        data.append(int(line))
-
+    data = [int(i) for i in file]
     return data
 
 
