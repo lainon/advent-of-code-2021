@@ -20,8 +20,8 @@ def part_one(loaded_data):
 def part_two(loaded_data):
     data = loaded_data[0]
     number_of_bits = loaded_data[1]
-    o = get_oxygen_generator_rating(data, number_of_bits, 0)
-    c = get_co2_scrubber_rating(data, number_of_bits, 0)
+    o = get_o2_co2(data, number_of_bits, 0, True)
+    c = get_o2_co2(data, number_of_bits, 0, False)
     print(f"part_two: {int(o, 2) * int (c, 2)}")
 
 
@@ -53,25 +53,7 @@ def get_epsilon_rate(gamma_rate):
     return e
 
 
-def get_oxygen_generator_rating(data, number_of_bits, iteration):
-    pruned_data = []
-    pruned_frequency = get_frequency(data, number_of_bits)
-
-    if len(data) == 1:
-        return data[0]
-
-    else:
-        g = get_gamma_rate(pruned_frequency, len(data))
-
-        for d in data:
-            if d[iteration] == g[iteration]:
-                pruned_data.append(d)
-
-        iteration += 1
-        return get_oxygen_generator_rating(pruned_data, number_of_bits, iteration)
-
-
-def get_co2_scrubber_rating(data, number_of_bits, iteration):
+def get_o2_co2(data, number_of_bits, iteration, o2):
     pruned_data = []
     pruned_frequency = get_frequency(data, number_of_bits)
 
@@ -83,11 +65,13 @@ def get_co2_scrubber_rating(data, number_of_bits, iteration):
         e = get_epsilon_rate(g)
 
         for d in data:
-            if d[iteration] == e[iteration]:
+            if d[iteration] == g[iteration] and o2:
+                pruned_data.append(d)
+            if d[iteration] == e[iteration] and not o2:
                 pruned_data.append(d)
 
         iteration += 1
-        return get_co2_scrubber_rating(pruned_data, number_of_bits, iteration)
+        return get_o2_co2(pruned_data, number_of_bits, iteration, o2)
 
 
 def main():
