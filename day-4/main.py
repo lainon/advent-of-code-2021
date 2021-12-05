@@ -1,4 +1,3 @@
-import inspect
 import os.path
 
 numbers = []
@@ -8,7 +7,6 @@ winners = []
 
 class BingoCard:
     winning_number = 0
-    winner = False
 
     def __init__(self, r1, r2, r3, r4, r5):
         self.card = [r1, r2, r3, r4, r5]
