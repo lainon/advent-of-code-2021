@@ -17,6 +17,7 @@ def cycle(iterations, lanternfishies):
 
 
 def load_data(file):
+    file.seek(0)
     lanternfishies = [0, 0, 0, 0, 0, 0, 0, 0, 0]
     for value in [int(i) for i in file.readline().split(",")]:
         lanternfishies[value] += 1
@@ -26,6 +27,7 @@ def load_data(file):
 def main():
     try:
         with open(os.path.join(os.path.dirname(__file__), "input.txt"), "r") as file:
+            cycle(80, load_data(file))
             cycle(256, load_data(file))
     except IOError:
         print("File not found...")
