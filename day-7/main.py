@@ -9,15 +9,16 @@ def get_minimal_cost_one(crab_submarines):
     return cost
 
 
-def get_minimal_cost_two(crab_submarines):
+def get_minimal_cost_two(crab_submarines, head, previous_cost):
     costs = []
-    for i in range(len(crab_submarines)):
-        cost = 0
-        for submarine in crab_submarines:
-            cost += sum(range(abs(submarine - i) + 1))
+    for submarine in crab_submarines:
+        cost = sum(range(abs(submarine - head) + 1))
         costs.append(cost)
 
-    return sorted(costs)[0]
+    if sum(costs) < previous_cost:
+        return get_minimal_cost_two(crab_submarines, head - 1, sum(costs))
+    else:
+        return previous_cost
 
 
 def load_data(file):
@@ -33,7 +34,8 @@ def main():
         with open(os.path.join(os.path.dirname(__file__), "input.txt"), "r") as file:
             crab_submarines = load_data(file)
             print(f"part one: {get_minimal_cost_one(crab_submarines)}")
-            print(f"part two: {get_minimal_cost_two(crab_submarines)}")
+            print(f"part two: {get_minimal_cost_two(crab_submarines, int(len(crab_submarines)/2), float('inf'))}")
+
     except IOError:
         print("File not found...")
 
