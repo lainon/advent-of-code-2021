@@ -3,11 +3,8 @@ import os.path
 
 
 def cycle(iterations, lanternfishies):
-    print("======================================")
-    # print(lanternfishies)
     lanternfishies.rotate(-1)
     lanternfishies[5] += lanternfishies[7]
-    print(lanternfishies)
 
     if iterations == 0:
         fishy_sum = 0
