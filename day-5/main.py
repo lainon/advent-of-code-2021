@@ -23,10 +23,8 @@ class Line:
     def set_slope(self):
         if self.point2[1] == self.point1[1]:
             self.horizontal = True
-
         elif self.point2[0] == self.point1[0]:
             self.vertical = True
-
         else:
             self.slope = (self.point2[1] - self.point1[1]) / (self.point2[0] - self.point1[0])
 
