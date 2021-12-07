@@ -22,6 +22,7 @@ def get_minimal_cost_two(crab_submarines, head, previous_cost):
 
 # the mean minimizes cost function for part 2, actually (not my solution)
 # https://math.stackexchange.com/questions/113270/the-median-minimizes-the-sum-of-absolute-deviations-the-ell-1-norm
+# https://math.stackexchange.com/questions/696622/intuition-on-why-the-average-minimizes-the-euclidean-distance
 
 
 def load_data(file):
