@@ -4,12 +4,6 @@ displays = []
 
 
 class Display:
-    part_one_count = 0
-    display_input = []
-    display_output = []
-    signal_map = []
-    zero_six_nine = []
-    two_three_five = []
 
     def __init__(self, display_input, display_output):
         self.display_input = display_input
